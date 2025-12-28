@@ -1,0 +1,10 @@
+# devenv configuration for PHP 7.4 legacy projects
+# Uses an older nixpkgs that includes PHP 7.4
+
+inputs:
+  nixpkgs:
+    url: github:cachix/devenv-nixpkgs/rolling
+
+  # PHP 7.4 from older nixpkgs (NixOS 22.11 was the last to have php74)
+  nixpkgs-php74:
+    url: github:NixOS/nixpkgs/nixos-22.11

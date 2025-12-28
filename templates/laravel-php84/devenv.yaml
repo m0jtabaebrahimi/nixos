@@ -1,0 +1,6 @@
+# devenv configuration
+# Run 'devenv init' to generate this file, or copy manually
+
+inputs:
+  nixpkgs:
+    url: github:cachix/devenv-nixpkgs/rolling
