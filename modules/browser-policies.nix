@@ -1,17 +1,26 @@
 { config, pkgs, lib, ... }:
 
-{
-  # System-level browser policies for Brave
-  environment.etc."brave/policies/managed/extensions.json".text = builtins.toJSON {
-    ExtensionInstallForcelist = [
-      "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx"
-    ];
-  };
+let
+  # Bitwarden extension for Chromium-based browsers
+  bitwardenExtension = "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx";
 
-  # Also create for chromium path as fallback
-  environment.etc."chromium/policies/managed/extensions.json".text = builtins.toJSON {
-    ExtensionInstallForcelist = [
-      "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx"
-    ];
+  extensionPolicy = builtins.toJSON {
+    ExtensionInstallForcelist = [ bitwardenExtension ];
+  };
+in
+{
+  # System-level browser policies for various Chromium-based browsers
+  environment.etc = {
+    # Brave
+    "brave/policies/managed/extensions.json".text = extensionPolicy;
+
+    # Chromium
+    "chromium/policies/managed/extensions.json".text = extensionPolicy;
+
+    # Google Chrome
+    "opt/chrome/policies/managed/extensions.json".text = extensionPolicy;
+
+    # Helium browser (Chromium-based)
+    "helium/policies/managed/extensions.json".text = extensionPolicy;
   };
 }
