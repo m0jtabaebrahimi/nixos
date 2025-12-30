@@ -8,13 +8,18 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ mesa vulkan-loader vulkan-validation-layers vulkan-tools ];
+  };
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/dfdce329-fb8c-46b8-b866-1e7afa0679d8";
+    { device = "/dev/disk/by-uuid/4f09f413-703e-4bed-aa92-59345ff2140b";
       fsType = "ext4";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/6229ee66-21bc-48d7-93ab-f9909715f117"; }
+    [ { device = "/dev/disk/by-uuid/84f312af-92b6-4251-b103-202558bc2d22"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
