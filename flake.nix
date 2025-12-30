@@ -11,8 +11,6 @@
 
     noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
 
-    helium-flake.url = "github:amaanq/helium-flake";
-
     nur.url = "github:nix-community/NUR";
 
     agenix = {

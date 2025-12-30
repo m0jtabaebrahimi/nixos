@@ -9,7 +9,7 @@ let
   };
 in
 {
-  # System-level browser policies for various Chromium-based browsers
+  # System-level browser policies for Chromium-based browsers
   environment.etc = {
     # Brave
     "brave/policies/managed/extensions.json".text = extensionPolicy;
@@ -19,8 +19,5 @@ in
 
     # Google Chrome
     "opt/chrome/policies/managed/extensions.json".text = extensionPolicy;
-
-    # Helium browser (Chromium-based)
-    "helium/policies/managed/extensions.json".text = extensionPolicy;
   };
 }

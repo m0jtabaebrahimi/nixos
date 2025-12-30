@@ -9,7 +9,6 @@
     firefox
     brave
     tor-browser
-    inputs.helium-flake.packages.x86_64-linux.default
 
     # Terminals
     kitty
